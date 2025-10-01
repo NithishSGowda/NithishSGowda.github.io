@@ -14,7 +14,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Apply Poppins font if linked in HTML, fallback to sans-serif */
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -79,7 +78,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--primary-color); /* Highlight with primary color on hover */
+    color: var(--primary-color);
 }
 
 
@@ -100,17 +99,6 @@ nav ul li a:hover {
     box-shadow: var(--shadow-subtle);
 }
 
-#about h1 {
-    font-size: 3em;
-    margin-top: 10px;
-}
-
-#about p {
-    font-size: 1.1em;
-    max-width: 700px;
-    margin: 20px auto 30px auto;
-}
-
 .highlight {
     color: var(--primary-color);
     font-weight: 700;
@@ -129,24 +117,89 @@ nav ul li a:hover {
 }
 
 .cta-button:hover {
-    background-color: #c0392b; /* Darker shade on hover */
+    background-color: #c0392b; 
     transform: translateY(-2px);
 }
 
+/* STYLES for the local admin controls */
+.admin-control {
+    margin: 5px 10px;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    display: inline-block;
+}
 
-/* --- 4. SKILLS SECTION (CSS Grid) --- */
-#skills {
+.update-button {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.update-button:hover {
+    background-color: #4a627a; 
+}
+
+/* --- 4. EDUCATION SECTION STYLES --- */
+#education {
     background-color: var(--background-light);
     border-top: 1px solid #ddd;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+.education-card {
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-subtle);
 }
 
+.education-card h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.college-name {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.marks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.marks-grid h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
+
+.sgpa-list ul, .pre-eng-marks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sgpa-list li, .pre-eng-marks li, .cgpa-summary p {
+    padding: 5px 0;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.sgpa-list span, .pre-eng-marks span, .cgpa-summary span {
+    font-weight: bold;
+    color: var(--primary-color);
+    float: right;
+}
+
+/* --- 5. SKILLS & PROJECTS STYLING (existing) --- */
 .skill-card {
     background: var(--text-light);
     padding: 30px;
@@ -154,35 +207,28 @@ nav ul li a:hover {
     box-shadow: var(--shadow-subtle);
     border-left: 5px solid var(--primary-color);
     transition: transform 0.3s;
+    position: relative;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px); 
+.remove-item-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8em;
+    opacity: 0.8;
+    z-index: 50;
+}
+.remove-item-btn:hover {
+    opacity: 1;
 }
 
-.skill-card h3 {
-    color: var(--primary-color);
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.skill-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.skill-card li {
-    padding: 5px 0;
-    font-size: 0.95em;
-    border-bottom: 1px dotted #eee;
-}
-
-.skill-card li:last-child {
-    border-bottom: none;
-}
-
-
-/* --- 5. PROJECTS SECTION (Flexbox Layout) --- */
+/* --- 6. PROJECTS SECTION (Flexbox Layout) --- */
 #projects {
     background-color: var(--text-light);
 }
@@ -197,6 +243,7 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: var(--shadow-subtle);
     background-color: #fff;
+    position: relative;
 }
 
 .project-item img {
@@ -212,7 +259,6 @@ nav ul li a:hover {
     width: 50%;
 }
 
-/* Modifier class to reverse the layout of alternate projects */
 .project-item.reverse-layout {
     flex-direction: row-reverse;
 }
@@ -237,7 +283,7 @@ nav ul li a:hover {
 }
 
 .link-button {
-    background-color: var(--accent-color); /* Using the blue accent color */
+    background-color: var(--accent-color);
     color: var(--text-light);
     padding: 10px 20px;
     border-radius: 5px;
@@ -250,7 +296,7 @@ nav ul li a:hover {
 }
 
 
-/* --- 6. CONTACT SECTION --- */
+/* --- 7. CONTACT SECTION --- */
 .contact-section {
     background-color: var(--secondary-color);
     color: var(--text-light);
@@ -260,11 +306,6 @@ nav ul li a:hover {
 
 .contact-section h2 {
     color: var(--text-light);
-}
-
-.contact-section p {
-    font-size: 1.1em;
-    margin-bottom: 40px;
 }
 
 .contact-links {
@@ -288,7 +329,7 @@ nav ul li a:hover {
 }
 
 
-/* --- 7. FOOTER --- */
+/* --- 8. FOOTER --- */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -298,9 +339,8 @@ footer {
 }
 
 
-/* --- 8. RESPONSIVENESS (MEDIA QUERIES) --- */
+/* --- 9. RESPONSIVENESS (MEDIA QUERIES) --- */
 @media (max-width: 900px) {
-    /* Tablet breakpoint: Stack content vertically */
     .project-item {
         flex-direction: column;
         gap: 20px;
@@ -313,7 +353,6 @@ footer {
         max-width: 100%;
     }
     
-    /* Reset the reverse layout on small screens */
     .project-item.reverse-layout {
         flex-direction: column;
     }
@@ -324,7 +363,6 @@ footer {
 }
 
 @media (max-width: 600px) {
-    /* Mobile breakpoint */
     nav {
         flex-direction: column;
     }
@@ -343,11 +381,22 @@ footer {
     }
     
     .skills-grid {
-        grid-template-columns: 1fr; /* Force a single column */
+        grid-template-columns: 1fr;
     }
-    
-    .contact-links {
-        flex-direction: column;
-        gap: 15px;
+
+    .marks-grid {
+        grid-template-columns: 1fr;
     }
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+/* --- PUBLIC VIEW HIDER: THIS HIDES ALL ADMIN TOOLS ON THE LIVE SITE --- */
+/* This rule MUST be present when deploying to ensure viewers do not see the edit buttons. */
+.admin-control {
+    display: none !important;
+}
+.remove-item-btn,
+.add-item-btn {
+    display: none !important;
 }

@@ -14,6 +14,7 @@
             <div class="logo">[Your Name]</div>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -23,58 +24,114 @@
 
     <section id="about" class="hero">
         <div class="hero-content">
-            <img src="images/profile.jpg" alt="Your Professional Photo" class="profile-photo">
+            <img src="images/profile.jpg" alt="Your Professional Photo" class="profile-photo" id="profile-pic">
+            
+            <div class="file-update-option admin-control">
+                <input type="file" id="image-selector" accept="image/*" style="display: none;">
+                <button onclick="document.getElementById('image-selector').click()" class="update-button">Change Profile Pic (Local Preview)</button>
+            </div>
+
+            <div class="resume-control-option admin-control">
+                <label for="resume-toggle">
+                    <input type="checkbox" id="resume-toggle" checked> Show Resume Button
+                </label>
+            </div>
+            
+            <div class="edit-control-option admin-control">
+                <button id="edit-toggle" class="update-button">Toggle Edit Mode</button>
+                <button id="marks-edit-toggle" class="update-button">Edit Marks</button> </div>
+            
             <h1>BE Student in CSE, specializing in <span class="highlight">Cybersecurity & Blockchain Technology</span></h1>
             <p>
                 I'm currently pursuing my Bachelor of Engineering with a focus on **network defense, cryptographic protocols, and secure distributed ledger technologies**. 
                 My core skills involve leveraging advanced tools (e.g., Nmap, Metasploit) and programming in **Python and C++** to audit and secure systems and decentralized applications. I am actively seeking roles in security analysis or DApp development.
             </p>
-            <a href="resume/Your_Name_Resume.pdf" download class="cta-button">Download Resume</a>
+            <a href="resume/Your_Name_Resume.pdf" download class="cta-button" id="resume-button">Download Resume</a> 
         </div>
     </section>
 
-    <section id="skills" class="section-padded">
+    <section id="education" class="section-padded">
+        <h2>🎓 Academic Profile</h2>
+        
+        <div class="education-card editable-content">
+            <h3>Bachelor of Engineering (CSE)</h3>
+            <p class="college-name" contenteditable="false">[Your Engineering College Name]</p>
+            <div class="marks-grid">
+                <div class="cgpa-summary">
+                    <p>Total CGPA: <span id="total-cgpa">8.50</span></p>
+                </div>
+                
+                <div class="sgpa-list">
+                    <h4>Semester SGPA</h4>
+                    <ul id="sgpa-marks">
+                        <li>Sem 1: <span data-sem="1">8.00</span></li>
+                        <li>Sem 2: <span data-sem="2">8.20</span></li>
+                        <li>Sem 3: <span data-sem="3">8.50</span></li>
+                        <li>Sem 4: <span data-sem="4">8.80</span></li>
+                        <li>Sem 5: <span data-sem="5">9.10</span></li>
+                        <li>Sem 6: <span data-sem="6">9.00</span></li>
+                        <li>Sem 7: <span data-sem="7">N/A</span></li>
+                        <li>Sem 8: <span data-sem="8">N/A</span></li>
+                    </ul>
+                </div>
+                
+                <div class="pre-eng-marks">
+                    <h4>Pre-Engineering & Schooling</h4>
+                    <ul>
+                        <li>2nd PUC / 12th: <span id="puc-perc">90.50%</span></li>
+                        <li>10th Grade: <span id="tenth-perc">92.00%</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padded editable-content">
         <h2>🛠️ Technical Skills</h2>
         <div class="skills-grid">
             
             <div class="skill-card">
                 <h3>Network & System Security</h3>
-                <ul>
+                <ul class="editable-list" contenteditable="false">
                     <li>**Tools:** Wireshark, Nmap, Metasploit, Burp Suite</li>
                     <li>**Concepts:** Ethical Hacking, Penetration Testing (Web/Network)</li>
                     <li>**OS:** Kali Linux, Virtualization (VMware/VirtualBox)</li>
                 </ul>
+                <button class="remove-item-btn" style="display:none;">Remove</button>
             </div>
             
             <div class="skill-card">
                 <h3>Blockchain & Cryptography</h3>
-                <ul>
+                <ul class="editable-list" contenteditable="false">
                     <li>**Concepts:** Hashing ($SHA-256$), Asymmetric/Symmetric Encryption</li>
                     <li>**Tech:** Solidity (Smart Contracts), Ethereum/Hyperledger Basics</li>
                     <li>**Tools:** Ganache, Truffle, Web3.js</li>
                 </ul>
+                <button class="remove-item-btn" style="display:none;">Remove</button>
             </div>
             
             <div class="skill-card">
                 <h3>Programming & Databases</h3>
-                <ul>
+                <ul class="editable-list" contenteditable="false">
                     <li>**Languages:** Python, C/C++, JavaScript (Node.js)</li>
                     <li>**Databases:** SQL (PostgreSQL/MySQL), MongoDB</li>
                     <li>**Version Control:** Git, GitHub, CI/CD basics</li>
                 </ul>
+                <button class="remove-item-btn" style="display:none;">Remove</button>
             </div>
         </div>
+        <button id="add-skill-card" class="cta-button add-item-btn" style="display:none; margin-top:20px;">+ Add Skill Category</button>
     </section>
 
-    <section id="projects" class="section-padded">
+    <section id="projects" class="section-padded editable-content">
         <h2>💻 Featured Projects</h2>
         
-        <div class="project-item">
-            <img src="images/network-forensics-screenshot.png" alt="Network Forensics Project">
+        <div class="project-item project-editable">
+            <img src="images/network-forensics-screenshot.png" alt="Network Forensics Project" loading="lazy">
             <div class="project-info">
-                <h3>Network Traffic Analysis & Forensics Lab</h3>
-                <p class="tech-stack">Wireshark, Python, Scapy, TCP/IP Stack, Kali Linux</p>
-                <p>
+                <h3 contenteditable="false">Network Traffic Analysis & Forensics Lab</h3>
+                <p class="tech-stack" contenteditable="false">Wireshark, Python, Scapy, TCP/IP Stack, Kali Linux</p>
+                <p class="project-description" contenteditable="false">
                     Conducted a comprehensive forensic analysis of simulated network attacks (DDoS and ARP Spoofing). 
                     Used **Wireshark** to capture and analyze packets, and developed **Python scripts with Scapy** to automate signature-based intrusion detection on raw traffic logs.
                 </p>
@@ -83,14 +140,15 @@
                     <a href="[Your Project Report Link]" target="_blank" class="link-button">Case Study Report</a>
                 </div>
             </div>
+            <button class="remove-item-btn" style="display:none;">Remove Project</button>
         </div>
         
-        <div class="project-item reverse-layout">
-            <img src="images/smart-contract-diagram.png" alt="Smart Contract Diagram">
+        <div class="project-item reverse-layout project-editable">
+            <img src="images/smart-contract-diagram.png" alt="Smart Contract Diagram" loading="lazy">
             <div class="project-info">
-                <h3>Secure Crowdfunding Smart Contract</h3>
-                <p class="tech-stack">Solidity, Ethereum, Truffle Framework, Web3.js</p>
-                <p>
+                <h3 contenteditable="false">Secure Crowdfunding Smart Contract</h3>
+                <p class="tech-stack" contenteditable="false">Solidity, Ethereum, Truffle Framework, Web3.js</p>
+                <p class="project-description" contenteditable="false">
                     Designed and implemented a fully functional, secure **Crowdfunding DApp** using **Solidity**. Focused on implementing robust access control (only fund recipients can withdraw) and handling overflow/underflow vulnerabilities. Deployed using the Truffle suite.
                 </p>
                 <div class="project-links">
@@ -98,9 +156,11 @@
                     <a href="[Your Contract Audit Link]" target="_blank" class="link-button">Contract Details</a>
                 </div>
             </div>
+            <button class="remove-item-btn" style="display:none;">Remove Project</button>
         </div>
-
-        </section>
+        
+        <button id="add-project-card" class="cta-button add-item-btn" style="display:none; margin-top:20px;">+ Add New Project</button>
+    </section>
 
     <section id="contact" class="section-padded contact-section">
         <h2>📬 Get In Touch</h2>
